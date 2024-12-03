@@ -457,7 +457,7 @@ std::unique_ptr<TargetInfo> AllocateTarget(const llvm::Triple &Triple,
     }
 
   case llvm::Triple::riscw:
-    return new RISCWTargetInfo(Triple, Opts);
+    return std::make_unique<RISCWTargetInfo>(Triple, Opts);
 
   case llvm::Triple::sparc:
     switch (os) {
